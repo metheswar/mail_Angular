@@ -1,0 +1,65 @@
+.inbox_row{
+    cursor:pointer
+}
+.modal-content {
+    border: none;
+  }
+  
+  .modal-header {
+    background-color: #007bff; /* Blue header */
+    color: white;
+    border-bottom: none;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .modal-footer {
+    border-top: none;
+  }
+  
+  /* Add a subtle shadow effect to the modal */
+  .modal-content {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Style the close button */
+  .btn-close {
+    color: white;
+  }
+  
+  /* Hover effect for close button */
+  .btn-close:hover {
+    color: white;
+    opacity: 0.75;
+  }
+  
+  /* Style the table */
+  table {
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 0.75rem;
+  }
+  
+  /* Alternate row color for better readability */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Hover effect for table rows */
+  .inbox_row{
+    background-color: grey ;
+  }
+  .inbox_row:hover {
+    cursor: pointer;
+    background-color: #cce5ff;
+  }
+  

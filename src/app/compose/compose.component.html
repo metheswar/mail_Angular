@@ -1,0 +1,26 @@
+<div class="container mt-5 pt-5">
+    <div fxLayout="column" fxLayoutAlign="center center" style="height: 80vh;">
+        <h2>Compose Email</h2>
+        <form [formGroup]="composeForm" (ngSubmit)="sendEmail()">
+            <div class="form-field">
+                <input type="email" placeholder="To" class="input-field" formControlName="toAddress">
+                <div class="error-message" [class.visible]="composeForm.get('toAddress').invalid && composeForm.get('toAddress').touched">
+                    Invalid email format
+                </div>
+            </div>
+            <div class="form-field">
+                <input type="text" placeholder="Subject" class="input-field" formControlName="subject">
+                <div class="error-message" [class.visible]="composeForm.get('subject').invalid && composeForm.get('subject').touched">
+                    Subject is required
+                </div>
+            </div>
+            <div class="form-field">
+                <ckeditor [editor]="Editor" formControlName="emailContent"></ckeditor>
+                <div class="error-message" [class.visible]="composeForm.get('emailContent').invalid && composeForm.get('emailContent').touched">
+                    Email content is required
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-5">Send</button>
+        </form>
+    </div>
+</div>

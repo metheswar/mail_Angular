@@ -1,0 +1,50 @@
+<div class="container mt-5 pt-5">
+    <ng-container *ngIf="sentMessagesLength > 0; else noSentMessages">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>To</th>
+            <th>Subject</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let message of sentMessages | keyvalue" (click)="openMessageModal(message.value)" class="outbox_row">
+            <td>{{ message.value.to }}</td>
+            <td>{{ message.value.subject }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+  
+    <ng-template #noSentMessages>
+      <div class="alert alert-info" role="alert">
+        No sent messages.
+      </div>
+    </ng-template>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="messageModalLabel">{{ selectedMessage?.subject }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+              <p><strong>To:</strong> {{ selectedMessage?.to }}</p>
+              <p><strong>Subject:</strong> {{ selectedMessage?.subject }}</p>
+             
+            <strong>Message:</strong> 
+            <div class="card p-3 m-3"> 
+                 <span [innerHTML]="selectedMessage?.content"></span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,55 @@
+.signup-card {
+    width: 400px;
+    margin: auto;
+  }
+  
+  .signup-card .card-header {
+    background-color: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .signup-card .card-body {
+    padding: 20px;
+  }
+  
+  .signup-card .card-footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+  }
+  
+  .signup-card .form-label {
+    font-weight: bold;
+  }
+  
+  .signup-card .text-danger {
+    color: #dc3545;
+    min-height: 25px;
+  }
+  
+  .signup-card .input-group {
+    position: relative;
+  }
+  
+  .signup-card .input-group .btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .signup-card .spinner-border {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 5px;
+  }
+
+.text-danger {
+    min-height: 25px;
+      
+    }
+.btns{
+  width: 100%;
+  background-color: #212529;
+     }

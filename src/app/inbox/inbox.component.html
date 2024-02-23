@@ -1,0 +1,54 @@
+<!-- inbox.component.html -->
+
+<div class="container pt-5 mt-5">
+    <ng-container *ngIf="inboxMessagesLength > 0; else noMessages">
+      <table class="table">
+        <!-- Table headers -->
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>Subject</th>
+
+          </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+          <tr *ngFor="let message of inboxMessages | keyvalue" (click)="openMessageModal(message.value)"  class="inbox_row">
+            <td>{{ message.value.from }}</td>
+            <td>{{ message.value.subject }}</td>
+     
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <!-- Template for no messages -->
+    <ng-template #noMessages>
+      <div class="alert alert-info" role="alert">
+        No inbox messages.
+      </div>
+    </ng-template>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="messageModalLabel">{{ selectedMessage?.subject }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>From:</strong> {{ selectedMessage?.from }}</p>
+          <p><strong>Subject:</strong> {{ selectedMessage?.subject }}</p>
+      <strong>Message:</strong>           
+       <div class="card p-3 m-3"> 
+        <span [innerHTML]="selectedMessage?.content"></span>
+         </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
